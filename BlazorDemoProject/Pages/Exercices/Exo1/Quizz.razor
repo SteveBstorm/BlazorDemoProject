@@ -1,0 +1,26 @@
+﻿@page "/exo1"
+<h3>Quizz</h3>
+
+@if(!IsQuizzFinished) {
+    @if(!string.IsNullOrWhiteSpace(Username)){
+        <Questions
+            Username="@Username"
+            NotifyAnswer="ReceiveAnswer" 
+            NotifyEndGame="NotifiedEndGame"
+        ></Questions>
+    }
+    else{
+        <p>Quel est votre nom  ?</p>
+        <input type="text" @bind="Username" />
+    }
+}
+else{
+    foreach(string r in Answers){
+        <p>@r</p>
+    }
+    <p>Merci d'avoir participer @Username</p>
+}
+
+@code {
+
+}

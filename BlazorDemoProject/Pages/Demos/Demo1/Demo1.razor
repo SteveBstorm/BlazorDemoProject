@@ -1,0 +1,22 @@
+﻿@page "/demo1"
+<h3>Demo1 - Code razor</h3>
+@*Et voici un 
+    bloc de commentaire 
+*@
+@if(test) {
+    <p>Test vaut @test</p>
+}
+else {
+    <p>Test vaut @test</p>
+}
+
+@code {
+    private Boolean test = true;
+}
+
+@*
+    Pour le formateur : Aller appliquer les modification dans NavMenu.razor
+    Ajout de la section Démos, méthode switchVisible() + prop isVisible
+
+    Ou demander en exercice de le faire en fonction du temps
+*@

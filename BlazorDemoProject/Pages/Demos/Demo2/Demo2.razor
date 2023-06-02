@@ -1,0 +1,31 @@
+﻿@page "/demo2"
+<h3>Demo2 - Bindings</h3>
+@*Montre comment déclarer un composant avec une partial class
+et bind properties et méthode*@
+
+<h4>Valeur stockée dans le CS : @MyValue</h4>
+@*@NomPropriété => permet de lire de la valeur*@
+
+<p>
+    <button @onclick="Add">Ajouter 1 à la valeur</button>
+    @*@onclick permet de réagir à l'event click du bouton et
+    appeler une méthode se trouvant dans le C#
+    *@
+
+</p>
+<p>
+    Valeur à retirer : <input type="number" @bind-value="ValueToRemove" />
+    @*@bind-value="NomProp" permet de lier un input à une prop
+    la prop prend alors la valeur introduite dans l'input en temps réel
+    *@
+
+    <button @onclick="() => Remove(ValueToRemove)">Retirer la valeur choisie</button>
+    @*
+    En cas de paramètre à envoyer à une méthode, il est nécéssaire d'utiliser
+    une lamba expression simplement
+    pour pouvoir utiliser les () à l'appel de la méthode
+    *@
+</p>
+@code {
+
+}

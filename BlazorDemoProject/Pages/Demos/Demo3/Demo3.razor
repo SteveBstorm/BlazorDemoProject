@@ -1,0 +1,34 @@
+﻿@page "/demo3"
+<h3>Demo3</h3>
+@*
+    Il est possible d'utiliser un composant dans un autre
+    en l'appelant par son nom, ce qui plus tard, permettra de décomposer
+    une page en divers composant réutilisable
+*@
+
+    <ReUsableComponent
+        MyValueFromCaller="PIGNOUFFFFF"
+        NotifyToCaller="GetValueFromCalledComponent"
+    >
+    </ReUsableComponent>
+
+    <hr />
+    <p>Valeur venant de l'enfant : @ValueFromCalled</p>
+@code {
+    public string ValueFromCalled { get; set; }
+
+    public void GetValueFromCalledComponent(string text){
+        ValueFromCalled = text;
+    }
+}
+
+@*
+    Etape 1 : appeler le ReUsableComponent sans rien y mettre
+    Etape 2 : Ajouter une propriété [Parameter] dans l'enfant 
+              et transmettre l'info du parent
+
+    Etape 3 : Mettre en place un EventCallback pour renvoyer une info du parent
+              vers l'enfant
+              L'EventCallback récupère automatiquement les paramètres passé et les transmets 
+              à la méthode de callback déclenchée par l'event
+*@

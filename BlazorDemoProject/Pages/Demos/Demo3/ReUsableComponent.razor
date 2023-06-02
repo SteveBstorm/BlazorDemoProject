@@ -1,0 +1,23 @@
+﻿<h3>ReUsableComponent</h3>
+    <p>Valeur venant du composant appelant : @MyValueFromCaller</p>
+
+    <p>
+        Valeur à renvoyer : <input @bind-value=ValueToNotify />
+        <button class="btn" @onclick="SendToCaller">Envoyer</button>
+    </p>
+
+@code {
+    //Step 2  + ajouter <p> contenant la valeur a afficher
+    [Parameter]
+    public string MyValueFromCaller{ get; set; }
+
+    //Step 3 + ajouter bouton pour déclencher l'event + l'input
+    [Parameter]
+    public EventCallback<string> NotifyToCaller { get; set; }
+
+    public string ValueToNotify { get; set; }
+
+    public void SendToCaller() {
+        NotifyToCaller.InvokeAsync(ValueToNotify);
+    }
+}
