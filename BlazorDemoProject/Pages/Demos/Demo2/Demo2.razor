@@ -16,7 +16,7 @@ et bind properties et méthode*@
 <p>
     Valeur à retirer : <input type="number" @bind-value="ValueToRemove" />
     @*@bind-value="NomProp" permet de lier un input à une prop
-    la prop prend alors la valeur introduite dans l'input en temps réel
+    la prop prend alors la valeur introduite dans l'input en répondant à l'event OnBlur de l'input
     *@
 
     <button @onclick="() => Remove(ValueToRemove)">Retirer la valeur choisie</button>

@@ -1,0 +1,36 @@
+﻿@page "/demo4"
+<h3>Virtualisation de données</h3>
+<h4>Exemple affichage basique</h4>
+<div style="max-height : 200px; overflow:scroll">
+    <ul>
+        @foreach (Item i in ItemList)
+        {
+            <li>
+                @i.Id - @i.Content
+            </li>
+        }
+
+    </ul>
+</div>
+
+@*
+    La virtualisation des listes permet de limité les éléments chargés dans le DOM, 
+    ils seront lazy-loader en fonction du nombre afficher
+    --> Démontrer avec l'inspecteur d'objet
+*@
+<hr />
+<h4>Exemple affichage virtualiser</h4>
+
+<div style="max-height : 200px; overflow:scroll">
+    <ul>
+        <Virtualize Context="item" Items="ItemList">
+            <li>
+                @item.Id - @item.Content
+            </li>
+        </Virtualize>
+
+    </ul>
+</div>
+@code {
+
+}
