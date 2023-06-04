@@ -1,0 +1,16 @@
+﻿<h3>Demo5Bis</h3>
+<p>Valeur transmise par le parent : @IncomingValue</p>
+@code {
+    [Parameter]
+    public int IncomingValue { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        IncomingValue *= 2;
+    }
+
+    @*
+        OnParameterSet() s'utilise généralement dans le cas d'objet complexe transmis d'un composant à l'autre
+        Le framework n'étant pas capable d'interpreté les modifications dans les objets imutable, il faut lui notifier un changement
+    *@
+}

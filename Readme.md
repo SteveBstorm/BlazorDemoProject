@@ -22,3 +22,15 @@
 
 5) Exercices Quizz
 
+6) Démo 4, 5 et 6
+
+7) Exercice Todo / Article / Autre...
+
+    1 composant affichant une liste (label + click)
+
+    1 composant (même page) formulaire d'entrée (avec validation)
+
+    1 composant (même page) Détail mis à jour sur le click dans la liste
+
+--> Demander de mettre en pratique les pricipes de Cycle de vie pour initialiser la liste, le formulaire et transmettre les données
+

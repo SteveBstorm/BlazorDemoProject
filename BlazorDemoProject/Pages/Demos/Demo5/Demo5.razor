@@ -1,0 +1,39 @@
+﻿@page "/demo5"
+<h3>Cycle de vie des composant</h3>
+
+<p>Valeur initialisée : @MyProperty</p>
+<p><button @onclick="SimulateRender">Test</button></p>
+<hr />
+<div>
+    <p>Valeur à transmettre : <input @bind-value="MyValue" type="number" /></p>
+    <Demo5Bis IncomingValue="MyValue"></Demo5Bis>
+</div>
+
+@code {
+    public string MyProperty { get; set; }
+    protected override void OnInitialized()
+    {
+        MyProperty = "Initialisée au chargement du composant";
+        MyValue = 42;
+    }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender) MyProperty = "Valeur affectée après le premier rendu";
+        else MyProperty = "Valeur affectée sur les autres rendus";
+
+    }
+
+    private void SimulateRender() {
+        Console.WriteLine(MyProperty);
+    }
+
+    public int MyValue { get; set; }
+}
+
+@*
+    Bien préciser l'existence des versions Async des méthode à override en cas d'utilisation de source de données externe
+    (Api, Db sur serveur distant, ...)
+
+    **Démontrer OnParameterSet() avec Demo5Bis. Ne pas oublier de préciser son utilité réelle
+*@
