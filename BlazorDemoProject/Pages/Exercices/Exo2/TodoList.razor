@@ -1,0 +1,30 @@
+﻿@page "/exo2"
+@using BlazorDemoProject.Pages.Exercices.Exo2.Models
+<h3>TodoList</h3>
+
+@if(Todos is not null) {
+   <ul>
+        @foreach (Todo t in Todos)
+        {
+            <li>
+        <button class="@(t.IsFinished ? "btn-success" : "btn-danger")" @onclick="() => SelectTask(t)">
+                @t.Label
+                </button>
+                @if(!t.IsFinished) {
+                    <button class="btn btn-outline-primary" @onclick="() => FinishTask(t.Id)">Terminer</button>
+                }
+            </li>
+        }
+    </ul>
+}
+
+
+<hr />
+<TodoAdd SaveNewTodo="Add"/>
+
+@if(SelectedTask is not null) {
+    <TodoDetail CurrentTask="SelectedTask" />
+}
+@code {
+
+}

@@ -1,0 +1,22 @@
+﻿<h3>Ajout d'une tâche</h3>
+
+<EditForm Model="NewTodo" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+    <p class="form-control">
+        Label <InputText @bind-Value="NewTodo.Label" />
+        <ValidationMessage class="bg-danger" For="() => NewTodo.Label" />
+
+    </p>
+    <p class="form-control">
+        Date <InputDate @bind-Value="NewTodo.Date" />
+    </p>
+    <p class="form-control">
+        Durée en minute <InputNumber @bind-Value="NewTodo.Duration" />
+        <ValidationMessage class="bg-danger" For="() => NewTodo.Duration" />
+    </p>
+    <button>Valider</button>
+</EditForm>
+
+@code {
+
+}

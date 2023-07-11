@@ -2,7 +2,7 @@
 {
     public partial class Quizz
     {
-        public string Username { get; set; }
+        public string? Username { get; set; }
 
         public bool IsQuizzFinished { get; set; }
         public List<string> Answers { get; set; }

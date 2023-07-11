@@ -1,0 +1,52 @@
+﻿@page "/demo6"
+<h3>Formulaires</h3>
+
+<div class="form">
+    <EditForm Model="NewGame" OnValidSubmit="ValidateForm">
+        <DataAnnotationsValidator />
+        <div class="form-control">
+            Titre : <InputText @bind-Value="NewGame.Title" />
+            <ValidationMessage For="() => NewGame.Title" />
+
+        </div>
+        <div class="form-control">
+            Note : <InputNumber @bind-Value="NewGame.Note" />
+        </div>
+        <div class="form-control">
+            Date de sortie : <InputDate @bind-Value="NewGame.ReleaseDate" />
+        </div>
+        <div class="form-control">
+            Genre : <InputSelect @bind-Value="NewGame.Genre">
+                <option>Faites votre choix</option>
+                @foreach (string item in _genre)
+                {
+                    <option value="@item">@item</option>
+                }
+            </InputSelect>
+        </div>
+        <button class="btn-success">Valider</button>
+        <div class="danger">
+            <ValidationSummary />
+        </div>
+    </EditForm>
+
+</div>
+
+@*
+    le helper <EditForm> représente l'objet contenant toute les informations du formulaire
+
+    Model => représente l'objet lié au formulaire, rempli via les inputs, et dont les attributs seront évalués
+    par <DataAnnotationsValidator />
+
+    OnValidSubmit => Déclenche la méthode liée sur un click de n'importe quel bouton de type submit se trouvant
+    dans <EditForm> => ne se déclenche que si toute les validations sont OK
+
+    OnInvalidSubmit => Déclenché si toute les validations ne passent pas
+*@
+
+@*
+    Etape 1 : Créer la classe Game => instancier, créer le formulaire, montrer les différents types d'input
+    Etape 2 : Ajouter un liste de genre pour expliquer le Select
+    Etape 3 : Ajouter les DataAnnotations => Démontrer le <DataAnnotationsValidator /> + <ValiationSummary />
+             + <ValidationMessage />
+*@

@@ -13,6 +13,8 @@
 
 --> Les différents dossiers et fichier importants (App.razor, index.html, Program.cs)
 
+2)a. Expliquer les 3 manières de créer un Composant (un bloc, partial, inherits + ComponentBase)
+
 3) Passer dans le layout et le navMenu (repertoire Shared)
 
 --> Explications rapide du routing 
