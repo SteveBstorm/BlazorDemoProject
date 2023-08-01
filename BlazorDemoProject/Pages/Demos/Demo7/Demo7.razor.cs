@@ -33,6 +33,12 @@ namespace BlazorDemoProject.Pages.Demos.Demo7
         private async Task TestCallFunction()
         {
             await jsModule.InvokeVoidAsync("myFunction");
+            await CallJsWithObject();
+        }
+
+        private async Task CallJsWithObject()
+        {
+            await jsModule.InvokeVoidAsync("functionWithObjParam", new { Name = "steve", Age = 40 });
         }
 
     }
