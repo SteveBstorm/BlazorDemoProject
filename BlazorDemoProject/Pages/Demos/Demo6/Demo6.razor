@@ -24,7 +24,7 @@
                 }
             </InputSelect>
         </div>
-        <button class="btn-success">Valider</button>
+        <button class="btn btn-success" disabled="@(!context.IsModified() || !context.Validate())">Valider</button>
         <div class="danger">
             <ValidationSummary />
         </div>
@@ -49,4 +49,14 @@
     Etape 2 : Ajouter un liste de genre pour expliquer le Select
     Etape 3 : Ajouter les DataAnnotations => Démontrer le <DataAnnotationsValidator /> + <ValiationSummary />
              + <ValidationMessage />
-*@
+
+    Bonus : Il est possible d'utiliser la constante context de EditForm pour contrôler l'état du formulaire
+            Voir bouton
+    !!! ATTENTION !!!
+    il est possible de se retrouver avec plusieurs constante "context"
+    dans le cadre d'une <AuthorizeView> par exemple
+        dans ce cas il sera nécéssaire de donner un alias à l'une des contante
+            <ChildContent Context="formContext">...</ChildContent>
+    Exemple à venir dans la démo sur les AuthenticationState
+
+ *@

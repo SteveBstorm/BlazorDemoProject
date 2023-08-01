@@ -7,7 +7,7 @@
         @foreach (Todo t in Todos)
         {
             <li>
-        <button class="@(t.IsFinished ? "btn-success" : "btn-danger")" @onclick="() => SelectTask(t)">
+        <button class="@(t.IsFinished ? "btn btn-success" : "btn btn-danger")" @onclick="() => SelectTask(t)">
                 @t.Label
                 </button>
                 @if(!t.IsFinished) {
